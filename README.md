@@ -47,6 +47,12 @@ La siguiente información está en la geodatabase.
 
 Información que no se que es:
 
+-   [x] Red_Walkability [Vector Lines]
+    -   Est_Vial
+    -   ZAT
+    -   UTAM
+    -   EntropiaS
+    -   De_XXXXX
 -   [x] Segmentos Viales SDP [Vector Polygon]
     -   Todos los demas atributos que no son Area_And.
 
