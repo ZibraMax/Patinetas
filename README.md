@@ -2,9 +2,9 @@
 
 # **Patinetas**
 
-# Requerimientos
+## **Requerimientos**
 
--   [ ] ArcGIS Pro>=2.4 **con extensiones**. En su defecto ArcMap **con extensiones**.
+-   [x] ArcGIS Pro>=2.4 **con extensiones**.
 -   [ ] Toolbox propia de creación de dataset (opcional).
 -   [x] Python>=3.7.5
 
@@ -18,12 +18,41 @@
 
     Para instalar las librerías puede usarse anaconda o pip.
 
--   Información Disponible:
-    -   Densidad Pob
-    -   Dataset Patinetas
-    -   TODO Revisar datos que paso Luis y ponerlos aquí
+## **Información Disponible:**
 
-# Proceso
+La siguiente información está en la geodatabase.
+
+[Tipo de información] (Atributo, tipo)
+
+-   [ ] Densidad Poblacion [Vector Polygon]
+-   [ ] DEM con el que se puede calcular $\Delta z$. [Raster]
+-   [ ] Uso de suelo de Metronamica [Raster]
+-   [x] Densidad de Empleo [Raster] (DensEmpkm, float)
+-   [x] Dataset de viajes de patinetas [Table, CSV] (bogota_data.csv)
+    -   Este dataset solos sirve para calcularcuantos viajes se realizan de celda de estudio a celda de estudio.
+    -   Se podría calcular distancia.
+    -   Se podría calcular la duración promedio en minutos, esto puede ser un segundo output.
+-   [x] Celdas de estudio [Vector Polygon] (geohashs_bogota)
+-   [x] Red_Walkability [Vector Lines]
+    -   Ancho Calle (Ancho, double)
+    -   Carriles Calle (Carriles, int)
+    -   Si hay SITP (SITP, bool)
+    -   Velocidad (vel, double)
+    -   Flujo (flujo, double)
+    -   Si hay andenes (Pres_anden, bool)
+    -   Congestion (congestion, double)
+    -   Estrato (estrato, int)
+-   [x] Segmentos Viales SDP [Vector Polygon]
+    -   Área de los andenes (Area_And, double)
+
+Información que no se que es:
+
+-   [x] Segmentos Viales SDP [Vector Polygon]
+    -   Todos los demas atributos que no son Area_And.
+
+## **Dataset**
+
+Aqui hay que poner las variables que van a ir en el modelo. Todavía en debate
 
 <!-- ## <a name="tabla1"></a>Creación de dataset desde ArcGIS
 
@@ -65,13 +94,37 @@
     13. Exportar la tabla de la capa base csv. Abrirla con un editor (como Excel) y revisar que las columnas tengan los nombres correctos, que los separadores de columnas sean "`,`" y que los separadores decimales sean "`.`"
     14. El archivo csv sera entrada del modelo de Random Forest de Python. -->
 
+## **Modelos de Python**
+
+### **Random Forest**
+
+### **Support Vector Machine**
+
+### **Redes Neuronales**
+
+### Conversación con JP (8/5/2021):
+
+En principio no hay razones para usar redes convolucionales y el problema parece "fácil". Lo importante del problema es orientar la red a UN SOLO OUTPUT, ya que esto hace que el entrenamiento sea más rápido.
+
+Par el entrenamiento se puede usar el método de bisección empezando con el número de neuronas igual al número de inputs (xl) y terminando con 500 veces el número de inputs (xu).
+Lo mejor para este tipo de modelo es usar el RMSE como _loss function_. Esto permite tener una unidad para saber que tan lejos se está.
+
+A pesar de que JP dice que con densas puede ser suficiente, sigo pensando que una ResNet puede tener mejores resultados. Esto se decidirá después.
+
+Para el entrenamiento puede ser muy útil usar Dropout porque son muchas variables, eso puede mejorar la generalización del modelo.
+
+El número de capas todavía es un misterio así como la función de activación.
+
+##### Modelo 1:
+
+-   Modelo con 5x neuronas/capa con función ReLu.
+-   5x capas.
+-   Batch Size de 100.
+-   Optimizador: Adam.
+-   RMSE,MAE.
+-   80%/20% Train/val.
+
 Si se usa Visual Studio Code, en la carpeta .vscode se encuentran una serie de archivos que automatizan los procesos de compilado y correr modelos.
-
-## Modelos de Python
-
-### Random Forest
-
-### Redes Neuronales
 
 <!--
 -   No se necesitan los archivos de entrenamiento
