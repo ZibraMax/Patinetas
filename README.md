@@ -7,6 +7,8 @@
 -   [x] ArcGIS Pro>=2.4 **con extensiones**.
 -   [ ] Toolbox propia de creación de dataset (opcional).
 -   [x] Python>=3.7.5
+-   [ ] GraphViz
+-   [ ] Pydot
 
     Se requieren las siguientes extenisones
 
