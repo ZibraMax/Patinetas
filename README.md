@@ -1,7 +1,5 @@
 <!-- LTeX: language=es -->
 
-# **Patinetas**
-
 ## **Requerimientos**
 
 -   [x] ArcGIS Pro>=2.4 **con extensiones**.
