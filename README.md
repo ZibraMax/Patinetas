@@ -3,16 +3,17 @@
 ## **Requerimientos**
 
 -   [x] ArcGIS Pro>=2.4 **con extensiones**.
--   [ ] Toolbox propia de creación de dataset (opcional).
+-   [x] Toolbox propia de creación de dataset (opcional).
 -   [x] Python>=3.7.5
--   [ ] GraphViz
--   [ ] Pydot
+-   [x] GraphViz
+-   [x] Pydot
 
     Se requieren las siguientes extenisones
 
     -   [x] Numpy [pip install --upgrade numpy]
     -   [x] Matplotlib [pip install --upgrade matplotlib]
     -   [x] Pandas [pip install --upgrade pandas]
+    -   [x] Seaborn [pip install --upgrade Seaborn]
     -   [x] H2o (Requiere java jdk versión 8 a versión 14) [pip install --upgrade h2o]
     -   [x] TensorFlow (v=2.4.0) [pip install --upgrade tensorflow==2.4.0]
 
@@ -24,9 +25,9 @@ La siguiente información está en la geodatabase.
 
 [Tipo de información] (Atributo, tipo)
 
--   [ ] Densidad Poblacion [Vector Polygon]
+-   [x] Densidad Poblacion [Vector Polygon]
 -   [ ] DEM con el que se puede calcular $\Delta z$. [Raster]
--   [ ] Uso de suelo de Metronamica [Raster]
+-   [x] Uso de suelo de Metronamica [Raster]
 -   [x] Densidad de Empleo [Raster] (DensEmpkm, float)
 -   [x] Dataset de viajes de patinetas [Table, CSV] (bogota_data.csv)
     -   Este dataset solos sirve para calcularcuantos viajes se realizan de celda de estudio a celda de estudio.
@@ -42,23 +43,27 @@ La siguiente información está en la geodatabase.
     -   Si hay andenes (Pres_anden, bool)
     -   Congestion (congestion, double)
     -   Estrato (estrato, int)
+    -   Estado de la via (Est_via,double)
+    -   De_XXXXX Densidades de cosas importantes. DOUBLE
 -   [x] Segmentos Viales SDP [Vector Polygon]
     -   Área de los andenes (Area_And, double)
 
 Información que no se que es:
 
--   [x] Red_Walkability [Vector Lines]
-    -   Est_Vial
-    -   ZAT
-    -   UTAM
-    -   EntropiaS
-    -   De_XXXXX
 -   [x] Segmentos Viales SDP [Vector Polygon]
     -   Todos los demas atributos que no son Area_And.
 
 ## **Dataset**
 
-Aqui hay que poner las variables que van a ir en el modelo. Todavía en debate
+Para generar los pares Origen Destino se parte de los datos de datos_bogota.csv. En este caso se agregan las entradas de dichos datos en los archivos OD y ODLW. Estos archivos están en la carpeta Train Data RNN.
+
+El archivo OD.csv contiene una matriz origen destino a nivel de geohash mientras que el archivo ODLW.csv contienen la misma matriz ignorando aquellos pares donde los viajes sean 0.
+
+La creación de estos archivos se lleva a cabo usando el script crearOD.py
+
+En total se cuentan con +10M de pares Origen Destino donde solo 164K son distintos de 0.
+
+Las variables que se usarán para el primer modelo son:
 
 <!-- ## <a name="tabla1"></a>Creación de dataset desde ArcGIS
 
@@ -129,6 +134,8 @@ El número de capas todavía es un misterio así como la función de activación
 -   Optimizador: Adam.
 -   RMSE,MAE.
 -   80%/20% Train/val.
+
+Este modelo ya esta programado en el archivo train.ipynb
 
 Si se usa Visual Studio Code, en la carpeta .vscode se encuentran una serie de archivos que automatizan los procesos de compilado y correr modelos.
 
