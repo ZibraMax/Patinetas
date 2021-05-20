@@ -65,6 +65,41 @@ En total se cuentan con +10M de pares Origen Destino donde solo 164K son distint
 
 Las variables que se usarán para el primer modelo son:
 
+-   **P significa presencia [int]**
+-   **D significa distancia [double]**
+-   **A significa porcentaje de area en celda [double]**
+-   **N significa número [int]**
+-   **PC Promedio en celda**
+
+-   [x] Usos suelo [int]
+-   [ ] Dens Pob [double]
+-   [ ] Dens Job [double]
+-   [ ] Flujo vehicular PC
+-   [ ] Velocidad PC
+-   [ ] Congestión PC
+-   [ ] Intersecciones P/A/D
+-   [ ] Densidad de delitos PC
+-   [ ] Árboles N
+-   [ ] Farolas N
+-   [ ] Vias P/D
+-   [ ] Estrato [int]
+-   [ ] Elevación [double]
+-   [ ] Sentido [wtf como]
+-   [ ] Iluminación [double]
+-   [ ] CAI D
+-   [ ] CBD D
+-   [ ] TM D
+-   [ ] Manzana A
+-   [ ] Anden A
+-   [ ] Separador A
+-   [ ] Ciclo rutas A
+-   [ ] Parque D/A
+-   [ ] Calzada Mixta A
+-   [ ] Calzada TM A
+-   [ ] Calzada peatonal A
+-   [ ] Puentes peatonales P
+-   [ ] Puentes vehiculares P
+
 <!-- ## <a name="tabla1"></a>Creación de dataset desde ArcGIS
 
 -   Usando el Toolbox crear un archivo csv con la siguiente estructura
