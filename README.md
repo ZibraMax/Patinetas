@@ -73,32 +73,35 @@ Las variables que se usarán para el primer modelo son:
 
 -   [x] Usos suelo [int]
 -   [ ] Dens Pob [double]
--   [ ] Dens Job [double]
--   [ ] Flujo vehicular PC
--   [ ] Velocidad PC
--   [ ] Congestión PC
--   [ ] Intersecciones P/A/D
--   [ ] Densidad de delitos PC
--   [ ] Árboles N
--   [ ] Farolas N
--   [ ] Vias P/D
--   [ ] Estrato [int]
--   [ ] Elevación [double]
--   [ ] Sentido [wtf como]
--   [ ] Iluminación [double]
--   [ ] CAI D
--   [ ] CBD D
--   [ ] TM D
--   [ ] Manzana A
+-   [x] Dens Job [double]
+-   [x] Flujo vehicular PC
+-   [x] Velocidad PC
+-   [x] Congestión PC
+-   [x] Densidad Intersecciones
+-   [x] Densidad de delitos PC
+-   [x] Árboles N
+-   [x] Farolas N
+-   [x] Estrato [int]
+-   [x] CAI D
+-   [x] CAI P
+-   [x] CBD D
+-   [x] TM D
+-   [x] Parque D
+-   [x] Parque P
+-   [x] Puentes peatonales P
+-   [x] Puentes vehiculares P
+-   [x] SITP
+-   [x] "Densidad"
+-   [x] Manzana A
+-   [x] Separador A
+-   [x] Ciclo rutas A
+-   [x] Calzada TM A
+-   [x] Calzada peatonal A
 -   [ ] Anden A
--   [ ] Separador A
--   [ ] Ciclo rutas A
--   [ ] Parque D/A
 -   [ ] Calzada Mixta A
--   [ ] Calzada TM A
--   [ ] Calzada peatonal A
--   [ ] Puentes peatonales P
--   [ ] Puentes vehiculares P
+-   [ ] Vias P/D
+-   [ ] Elevación [double]
+-   [ ] Iluminación [double]
 
 <!-- ## <a name="tabla1"></a>Creación de dataset desde ArcGIS
 
