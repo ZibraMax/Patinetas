@@ -2,7 +2,22 @@ import pandas as pd
 import numpy as np
 from tqdm import tqdm
 
-PATH_DATOS_BOGOTA = "Datos/Capas/bogota_data/bogota_data.csv"
+# # %% Agg me lelva la berga
+# O = pd.read_csv('../Datos/ORIGEN.csv')
+# D = pd.read_csv('../Datos/DESTINO.csv')
+
+# # %% indexation
+
+# O.set_index('trip_id', inplace=True)
+# D.set_index('trip_id', inplace=True)
+# # %% Come on honey
+# D['end_hash'] = O['Hash'][D.index].values
+
+# %% Saving the fucking data
+# PATH_DATOS_BOGOTA = "../Datos/OD_Mesh.csv"
+# D.to_csv(PATH_DATOS_BOGOTA)
+
+PATH_DATOS_BOGOTA = "Datos/OD_Mesh.csv"
 
 # Leer datos
 df = pd.read_csv(PATH_DATOS_BOGOTA)
