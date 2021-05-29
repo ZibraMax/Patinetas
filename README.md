@@ -13,6 +13,7 @@
     -   [x] Numpy `pip install --upgrade numpy`
     -   [x] Matplotlib `pip install --upgrade matplotlib`
     -   [x] Pandas `pip install --upgrade pandas`
+    -   [x] tqdm `pip install --upgrade tqdm`
     -   [x] Seaborn `pip install --upgrade Seaborn`
     -   [x] H2o (Requiere java jdk versión 8 a versión 14) `pip install --upgrade h2o`
     -   [x] TensorFlow (v=2.4.0) `pip install --upgrade tensorflow==2.4.0`

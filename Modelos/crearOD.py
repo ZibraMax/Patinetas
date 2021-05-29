@@ -1,10 +1,14 @@
+# %% Saving the fucking data
 import pandas as pd
 import numpy as np
 from tqdm import tqdm
 
 # # %% Agg me lelva la berga
-# O = pd.read_csv('../Datos/ORIGEN.csv')
-# D = pd.read_csv('../Datos/DESTINO.csv')
+O = pd.read_csv('../Datos/ORIGEN.csv')
+O.dropna(inplace=True)
+
+D = pd.read_csv('../Datos/DESTINO.csv')
+D.dropna(inplace=True)
 
 # # %% indexation
 
@@ -17,19 +21,19 @@ from tqdm import tqdm
 # PATH_DATOS_BOGOTA = "../Datos/OD_Mesh.csv"
 # D.to_csv(PATH_DATOS_BOGOTA)
 
-PATH_DATOS_BOGOTA = "Datos/OD_Mesh.csv"
+PATH_DATOS_BOGOTA = "../Datos/OD_Mesh.csv"
 
 # Leer datos
 df = pd.read_csv(PATH_DATOS_BOGOTA)
 
-# Eliminar datos que son nulos
+# %% Eliminar datos que son nulos
 df.dropna(inplace=True)
 
 # Quedarse solo con las columnas interesantes (el tiempo todavía no lo tenemos en cuenta)
 dfviajes = df[['sta_geohash', 'end_geohash',
                'sta_time_bogota', 'end_time_bogota']]
-
-# Con este proceso se encuentran los nombres de los geohashes. Como son distintos en origen y destino se concatenan y unifican
+# %% Con este proceso se encuentran los nombres de los geohashes. Como son distintos en origen y destino se concatenan y unifican
+# %%
 labelsstart = dfviajes.sta_geohash.unique().tolist()
 labelsend = dfviajes.end_geohash.unique().tolist()
 labels = labelsstart+labelsend
@@ -37,7 +41,7 @@ labels = labelsstart+labelsend
 # Aqui es la unificación
 labelsgeo = np.unique(labels)
 
-# Se crean diccionarios con ceros para que cuenten los viajes. Esta es quizas la manera mas eficiente de hacerlo para estos datos
+# %% Se crean diccionarios con ceros para que cuenten los viajes. Esta es quizas la manera mas eficiente de hacerlo para estos datos
 dict_geo = {}
 for labelo in labelsgeo:
     dictpart = {}
@@ -45,9 +49,9 @@ for labelo in labelsgeo:
         dictpart[labeld] = 0
     dict_geo[labelo] = dictpart
 
-# Se itera sobre los datos para contar los viajes que se realizan en cada par origen destino
+# %% Se itera sobre los datos para contar los viajes que se realizan en cada par origen destino
 datanumpy = dfviajes.values
-for i, l in enumerate(tqdm(datanumpy)):
+for l in tqdm(datanumpy):
     o = l[0]
     d = l[1]
     dict_geo[o][d] += 1
