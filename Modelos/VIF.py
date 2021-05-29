@@ -15,7 +15,7 @@ X = data[data.columns[1:-1]]
 X = X.apply(pd.to_numeric)
 X.head(20)
 
-# # %% Seaborn
+# # %% Seaborn https://colab.research.google.com/drive/1qFKQ_DKxUS3gcUIRuSQyDq5O-5AbfQSs?usp=sharing
 # sns_plot = sb.pairplot(X, diag_kind="hist")
 # sns_plot.savefig("output2.svg")
 
